@@ -12,7 +12,7 @@ class AbstractBaseSocialModel(BaseModel):
         abstract = True
 
 
-class OriginDetails(BaseModel):
+class OriginDetails(models.Model):
     origin_platform = models.CharField(max_length=25, verbose_name=_('Origin platform'))
     origin_url = models.URLField(verbose_name=_('Origin URL'), blank=True)
 
@@ -23,7 +23,7 @@ class OriginDetails(BaseModel):
         return f'{self.origin_platform}::{self.origin_url}'
 
 
-class Context(BaseModel):
+class Context(models.Model):
     main_text = models.TextField(verbose_name=_('Main Text'), blank=True)
     token_count = models.PositiveIntegerField(verbose_name=_('Token count'), default=0)
     char_count = models.PositiveIntegerField(verbose_name=_('Character count'), default=0)
@@ -37,7 +37,7 @@ class Context(BaseModel):
         return self.main_text
 
 
-class Media(BaseModel):
+class Media(models.Model):
     urls = models.JSONField(verbose_name=_('Urls'), default=list)
     media_type = models.CharField(max_length=20, verbose_name=_('Media type'), default='IMAGE')
 
@@ -46,7 +46,7 @@ class Media(BaseModel):
         verbose_name_plural = _('Medias')
 
 
-class ContentStats(BaseModel):
+class ContentStats(models.Model):
     likes = models.PositiveIntegerField(verbose_name=_('Likes'), default=0)
     views = models.PositiveIntegerField(verbose_name=_('Views'), default=0)
     comments = models.PositiveIntegerField(verbose_name=_('Comments'), default=0)
@@ -55,14 +55,14 @@ class ContentStats(BaseModel):
         verbose_name = _('Content Stats')
 
 
-class AuthorStats(BaseModel):
+class AuthorStats(models.Model):
     followers = models.PositiveIntegerField(verbose_name=_('Followers'), default=0)
 
     class Meta:
         verbose_name = _('Author Stats')
 
 
-class AuthorInfo(BaseModel):
+class AuthorInfo(models.Model):
     name = models.CharField(max_length=100, verbose_name=_('Name'), blank=True)
     platform = models.CharField(max_length=100, verbose_name=_('Platform'), blank=True)
 
