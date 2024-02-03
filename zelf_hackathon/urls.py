@@ -19,7 +19,9 @@ from django.urls import path, include
 from zelf_hackathon.settings import ENV_TYPE
 
 api_url_patterns = (
-    []
+    [
+        path('content/v1/', include('social_content.api.v1.urls'))
+    ]
 )
 
 urlpatterns = [

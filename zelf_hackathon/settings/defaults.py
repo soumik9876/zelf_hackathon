@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     # installed app
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # custom app
     'accounts',
     'core',
+    'social_content'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_starter.urls'
+ROOT_URLCONF = 'zelf_hackathon.urls'
 
 TEMPLATES = [
     {
@@ -166,7 +167,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DRF configs
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+        # 'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
@@ -182,11 +183,11 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
     ]
 }
-REST_AUTH = {
-    'USE_JWT': True,
-    'JWT_AUTH_COOKIE': 'bearer',
-    'JWT_AUTH_REFRESH_COOKIE': 'refresh',
-}
+# REST_AUTH = {
+#     'USE_JWT': True,
+#     'JWT_AUTH_COOKIE': 'bearer',
+#     'JWT_AUTH_REFRESH_COOKIE': 'refresh',
+# }
 # AUTHENTICATION_BACKENDS = [
 #     # Needed to log-in by username in Django admin, regardless of `allauth`
 #     'django.contrib.auth.backends.ModelBackend',

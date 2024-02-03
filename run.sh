@@ -9,4 +9,4 @@ python manage.py loaddata restaurant/fixtures/restaurant_data.json
 
 python manage.py collectstatic
 # Start the Gunicorn server
-gunicorn --config gunicorn_config.py django_starter.wsgi:application
+gunicorn --config gunicorn_config.py zelf_hackathon.wsgi:application
