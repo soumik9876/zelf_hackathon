@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "96ad5256-bf92-4b44-a9a2-7bfca638ffe4",
+		"name": "Zelf hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13429534"
+	},
+	"item": [
+		{
+			"name": "List content-author",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/content/v1/content-author/?page=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"content",
+						"v1",
+						"content-author",
+						""
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Stats",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/content/v1/stats/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"content",
+						"v1",
+						"stats",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Content By Date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/content/v1/content-by-date/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"content",
+						"v1",
+						"content-by-date",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Content By platform",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/content/v1/content-by-platform/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"content",
+						"v1",
+						"content-by-platform",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
