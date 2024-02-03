@@ -7,6 +7,9 @@ class ContentManager(Manager):
     def create_or_update_from_response(self, response):
         contents = response.get('data')
         for content in contents:
+            """
+                We iterate through the content list response, get author data, then create content in DB
+            """
             author = content.get('author')
             author_obj = Author.objects.create_or_update_author_from_data(data=author)
 
@@ -21,14 +24,17 @@ class ContentManager(Manager):
             }
             from social_content.api.v1.serializers import ContentSerializer
             from social_content.models import Content
+            """
+                Depending on the existence of the content in DB, we create or update it
+            """
             content_obj = Content.objects.filter(hack_uid=content_data.get('hack_uid')).first()
             if content_obj is None:
                 serializer = ContentSerializer(data=content_data)
-                serializer.is_valid()
+                serializer.is_valid(raise_exception=True)
                 serializer.save()
             else:
                 serializer = ContentSerializer(instance=content_obj, data=content_data, partial=True)
-                serializer.is_valid()
+                serializer.is_valid(raise_exception=True)
                 serializer.save()
 
     def get_stats(self, stats):
