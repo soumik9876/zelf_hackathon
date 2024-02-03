@@ -1,3 +1,4 @@
+from drf_writable_nested import WritableNestedModelSerializer
 from rest_framework import serializers
 
 from social_content.models import OriginDetails, AuthorInfo, Context, Media, ContentStats, AuthorStats, Author, Content
@@ -39,21 +40,21 @@ class AuthorInfoSerializer(serializers.ModelSerializer):
         exclude = ['id']
 
 
-class AuthorSerializer(serializers.ModelSerializer):
-    info = AuthorInfoSerializer()
-    stats = AuthorStatsSerializer()
+class AuthorSerializer(WritableNestedModelSerializer):
+    info = AuthorInfoSerializer(required=False)
+    stats = AuthorStatsSerializer(required=False)
 
     class Meta:
         model = Author
         exclude = ['id']
 
 
-class ContentSerializer(serializers.ModelSerializer):
+class ContentSerializer(WritableNestedModelSerializer):
     author_details = AuthorSerializer(read_only=True, source='author')
-    context = ContextSerializer()
-    origin_details = OriginDetailsSerializer()
-    media = MediaSerializer()
-    stats = ContentStatsSerializer()
+    context = ContextSerializer(required=False)
+    origin_details = OriginDetailsSerializer(required=False)
+    media = MediaSerializer(required=False)
+    stats = ContentStatsSerializer(required=False)
 
     class Meta:
         model = Content

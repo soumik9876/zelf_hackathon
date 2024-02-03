@@ -95,6 +95,7 @@ class Author(AbstractBaseSocialModel):
     objects = AuthorManager()
 
     class Meta:
+        ordering = ['id']
         verbose_name = _('Author')
         verbose_name_plural = _('Authors')
 
@@ -117,6 +118,7 @@ class Content(AbstractBaseSocialModel):
     objects = ContentManager()
 
     class Meta:
+        ordering = ['id']
         verbose_name = _('Content')
         verbose_name_plural = _('Contents')
 
