@@ -3,6 +3,8 @@ from django.db import models
 from core.models import BaseModel
 from django.utils.translation import gettext_lazy as _
 
+from social_content.managers.author_manager import AuthorManager
+
 
 class AbstractBaseSocialModel(BaseModel):
     # The unique ID of the object in the 3rd party API platform
@@ -90,6 +92,7 @@ class Author(AbstractBaseSocialModel):
         }
     """
     texts = models.JSONField(verbose_name=_('Texts'), default=dict)
+    objects = AuthorManager()
 
     class Meta:
         verbose_name = _('Author')
@@ -108,6 +111,10 @@ class Content(AbstractBaseSocialModel):
     media = models.OneToOneField(Media, verbose_name=_('Media'), on_delete=models.SET_NULL, null=True)
 
     stats = models.OneToOneField(ContentStats, verbose_name=_('Content Stats'), on_delete=models.SET_NULL, null=True)
+
+    # Custom manager
+    from social_content.managers.content_manager import ContentManager
+    objects = ContentManager()
 
     class Meta:
         verbose_name = _('Content')
