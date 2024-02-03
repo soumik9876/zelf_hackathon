@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     # installed app
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework.authtoken',
     # 'allauth',
     # 'allauth.account',
     # 'allauth.socialaccount',
@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # custom app
     'accounts',
     'core',
+    'social_content'
 ]
 
 MIDDLEWARE = [
@@ -68,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_starter.urls'
+ROOT_URLCONF = 'zelf_hackathon.urls'
 
 TEMPLATES = [
     {
