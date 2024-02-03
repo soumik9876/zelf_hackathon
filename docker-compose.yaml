@@ -1,0 +1,22 @@
+# docker-compose.yml
+version: '3.10'
+
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: zelf_hackathon
+    environment:
+      DJANGO_SETTINGS_MODULE: zelf_hackathon.settings
+
+    command: bash -c "./run.sh"
+    ports:
+      - "8000:8000"
+#    volumes:
+#      - ./app:/app
+
+networks:
+  default:
+    name: zelf_hackathon
